@@ -64,8 +64,35 @@ void loop()
 
     }
     stripThird.show();
-    stripSecond.show();
+    stripSecond.show();// Передаем цвета ленте.
     stripFirst.show();
     delay(500);
   }
+delay(500);
+
+  for (int i = (LED_COUNT1+LED_LAG+LED_LAG); i > 0 ; i--)///Выключение всех трех с задержкой
+  {
+    if(i<LED_COUNT1)///Выключение первой
+    {
+    stripFirst.setPixelColor(i, stripFirst.Color(0, 0, 0));
+    }
+    if((i<LED_LAG+LED_COUNT2)&&(i>LED_LAG))///Выключение второй
+    {
+      int y=i-LED_LAG;
+      stripSecond.setPixelColor(y, stripSecond.Color(0, 0, 0));
+    }
+    if(i>LED_LAG+LED_LAG)///Выключение третьей
+    {
+      int x=i-LED_LAG-LED_LAG;
+      stripThird.setPixelColor(x, stripThird.Color(0, 0, 0));
+
+    }
+    stripThird.show();
+    stripSecond.show();// Передаем цвета ленте.
+    stripFirst.show();
+    delay(500);
+  }
+
+
+
 }
